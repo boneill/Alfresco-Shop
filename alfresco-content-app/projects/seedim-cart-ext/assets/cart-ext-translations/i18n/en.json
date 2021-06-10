@@ -1,0 +1,26 @@
+{
+  "SEEDIM_CART":{
+    
+        "ACTIONS":{
+          "ADD_TO_CART": "Add to Cart"
+        },
+        "BROWSE":{
+          
+            "CART_VIEW":{
+          
+              "TITLE": "My Cart"
+            },
+            "PURCHASED_ITEMS":{
+          
+              "TITLE": "My Purchased Items"
+            }
+
+        },
+        "CHECKOUT":{
+          "SUCCESS_TITLE":"Checkout and Payment Success",
+          "CANCEL_TITLE":"Your Order has been cancelled"
+
+        }
+      }
+
+}

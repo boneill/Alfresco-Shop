@@ -1,0 +1,22 @@
+{
+  "SEEDIM_CART":{
+    
+        "ACTIONS":{
+          "ADD_TO_CART": "Add to Cart"
+        },
+        "BROWSE":{
+          
+            "CART_VIEW":{
+          
+              "TITLE": "My Cart"
+            }
+
+        },
+        "CHECKOUT":{
+          "SUCCESS_TITLE":"Thanks for your Order!",
+          "CANCEL_TITLE":"Your Order has been cancelled"
+
+        }
+      }
+
+}

@@ -1,0 +1,81 @@
+<aca-page-layout>
+ 
+ 
+    <aca-page-layout-header>
+      <adf-breadcrumb root="SEEDIM_CART.BROWSE.PURCHASED_ITEMS.TITLE"></adf-breadcrumb>
+  
+      <adf-toolbar class="adf-toolbar--inline">
+        <ng-container *ngIf="isItemSelected">
+            <button mat-icon-button
+            aria-label="APP.ACTIONS.DOWNLOAD"
+                    [adfNodeDownload]="documentList.selection">
+                    <mat-icon>get_app</mat-icon>
+            </button>
+        </ng-container>
+      </adf-toolbar>
+
+    </aca-page-layout-header>
+   
+    <aca-page-layout-content [scrollable]="true">
+      <div class="main-content">
+  
+        <adf-document-list
+            #documentList
+            [currentFolderId]="(userCartFolderNode$ | async)?.id"
+            [contextMenuActions]="true"
+            [contentActions]="true"
+            (nodeSelected)="nodeSelected($event)">
+
+            <content-actions>
+
+                <content-action
+                    target="document"
+                    title="Download"
+                    handler="download">
+                </content-action>
+        
+            </content-actions>
+
+            <data-columns>
+                <data-column key="$thumbnail" type="image"></data-column>
+                <data-column
+                    title="Name"
+                    key="properties.cart:originalDocumentName"
+                    sortable="true"
+                    class="full-width ellipsis-cell"
+                    >
+                </data-column>
+    
+                <data-column
+                    title="Purchased Date"
+                    key="createdAt"
+                    type="date"
+                    format="medium"
+                    sortable="true"
+                    class="desktop-only"
+                    >
+                </data-column>
+            </data-columns>
+            <adf-custom-empty-content-template>
+                <adf-empty-content
+                  icon="star_rate"
+                  title="DIGITAL_SIGNATURE.DIGITAL_SIGNATURE_DASHBOARD.EMPTY_STATE.TITLE"
+                  subtitle="DIGITAL_SIGNATURE.DIGITAL_SIGNATURE_DASHBOARD.EMPTY_STATE.SUBTITLE"
+                >
+                </adf-empty-content>
+              </adf-custom-empty-content-template>
+        </adf-document-list>
+
+       
+      
+      <adf-pagination
+        *ngIf="!documentList.isEmpty()"
+        [target]="documentList"
+      ></adf-pagination>
+  
+      
+  
+      </div>
+    </aca-page-layout-content>
+  </aca-page-layout>
+  
