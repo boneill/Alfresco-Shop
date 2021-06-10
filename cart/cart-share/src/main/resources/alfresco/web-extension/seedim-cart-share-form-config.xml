@@ -1,0 +1,36 @@
+<alfresco-config>
+
+<config evaluator="aspect" condition="cart:cartDocumentAspect">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cart:userId" />
+                </field-visibility>
+                
+                <appearance>
+                     <set appearance="fieldset" label="Cart" id="cart"/>    
+                    <field id="cart:userId" read-only="true" set="cart" />
+                </appearance>
+            </form>
+        </forms>
+    </config>
+
+
+	<config evaluator="aspect" condition="cart:skuAspect">
+        <forms>
+            <form>
+                <field-visibility>
+                    <show id="cart:price" />
+                </field-visibility>
+                
+                <appearance>
+                     <set appearance="fieldset" label="Cart Purchase Details" id="cart-purchase-details"/>    
+                    <field id="cart:price" set="cart-purchase-details">
+		            </field>
+                </appearance>
+            </form>
+        </forms>
+    </config>
+	    
+    
+</alfresco-config>
