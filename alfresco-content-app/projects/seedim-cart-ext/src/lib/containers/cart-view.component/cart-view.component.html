@@ -1,0 +1,48 @@
+<aca-page-layout>
+ 
+ 
+  <aca-page-layout-header>
+    <adf-breadcrumb root="SEEDIM_CART.BROWSE.CART_VIEW.TITLE"></adf-breadcrumb>
+
+    <div class="adf-toolbar--spacer adf-toolbar-divider"></div>
+
+    <adf-toolbar class="adf-toolbar--inline">
+      <ng-container>
+        <lib-stripe-checkout></lib-stripe-checkout>
+      </ng-container>
+    </adf-toolbar>
+  </aca-page-layout-header>
+ 
+  <aca-page-layout-content [scrollable]="true">
+    <div class="main-content">
+
+
+     
+      <mat-card class="cart-padding">
+        <mat-card-content>
+        <cart-view  [images]="'false'" [display]="'responsive-table'">
+        </cart-view> 
+      </mat-card-content>
+
+        <mat-card-actions>
+          
+          <button mat-flat-button (click)="emptyCart()">
+          EMPTY CART
+        </button>
+
+        </mat-card-actions>
+      </mat-card>
+      <!-- <span align="right">
+        <button class="empty-right" mat-flat-button (click)="emptyCart()">
+          EMPTY CART
+        </button>
+        <lib-stripe-checkout class="paynow-right"></lib-stripe-checkout>
+      </span> -->
+
+      <!--<cart-checkout class="paypal-container-right" [buttonText]="'Checkout Now'" [service]="'paypal'" [settings]="paypalSettings">
+      </cart-checkout> -->
+
+
+    </div>
+  </aca-page-layout-content>
+</aca-page-layout>

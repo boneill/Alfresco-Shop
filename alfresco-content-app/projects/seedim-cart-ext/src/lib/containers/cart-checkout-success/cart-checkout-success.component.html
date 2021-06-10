@@ -1,0 +1,74 @@
+<aca-page-layout>
+ 
+  <aca-page-layout-header>
+    
+    <adf-breadcrumb root="SEEDIM_CART.CHECKOUT.SUCCESS_TITLE"></adf-breadcrumb>
+
+
+  </aca-page-layout-header>
+ 
+  <aca-page-layout-content [scrollable]="true">
+    <div class="main-content">
+      
+
+      <mat-card class="success-padding" *ngIf="paymentStatus === 'paid'">
+        <mat-card-header>
+          <mat-card-title>Checkout Success </mat-card-title>
+          <mat-card-subtitle>Thanks for your order {{customerName }}!</mat-card-subtitle>
+        </mat-card-header>
+        
+        <mat-card-content >
+
+        
+            You can now download your content from the Purchased Items page (left hand navigation).  
+            
+            <mat-card-subtitle>Purchase Receipt</mat-card-subtitle>
+            A receipt for the purchase has been emailed to {{email}}.  
+            
+            
+        
+            <p>
+              If you have any questions, please email
+              <a href="mailto:orders@example.com">orders@example.com</a>.
+            </p>
+            
+        </mat-card-content>
+
+        <mat-card-actions>
+          <mat-card-subtitle>Download your Purchased Documents</mat-card-subtitle>
+          <p>Your documents will be available to download for 3 days and will then be removed</p>
+
+          <button mat-raised-button color="primary" (click)="download()">
+            Purchased Items
+          </button>
+        </mat-card-actions>
+        <mat-card-footer>  
+         
+          </mat-card-footer>
+
+      </mat-card>
+      
+      <mat-card *ngIf="paymentStatus === 'unpaid'" class="success-padding">
+        <mat-card-header>
+          <mat-card-title>Checkout payment was not completed</mat-card-title>
+          <mat-card-subtitle>To purchase items, please checkout and pay for the items in your cart!</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            If you have any questions, please email
+            <a href="mailto:orders@example.com">orders@example.com</a>.
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          
+          <button mat-flat-button (click)="viewCart()">
+          View Cart
+        </button>
+
+        </mat-card-actions>
+      </mat-card>
+
+    </div>
+  </aca-page-layout-content>
+</aca-page-layout>

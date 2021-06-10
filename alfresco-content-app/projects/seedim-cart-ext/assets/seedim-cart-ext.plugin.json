@@ -1,0 +1,68 @@
+{
+    "$schema": "../../../extension.schema.json",
+    "$id": "my-extension",
+    "$version": "1.0.0",
+    "$vendor": "Your name or company name",
+    "$name": "plugin1",
+    "$description": "demo plugin",
+    "$license": "MIT",
+  
+    "routes": [
+      {
+        "id": "seedim.cart.view.route",
+        "path": "cart/viewcart",
+        "component": "seedim-cart.viewcart.component"
+      },
+      {
+        "id": "seedim.cart.checkout.cancel",
+        "path": "cart/checkout/cancel",
+        "component": "seedim-cart.viewcart.component"
+      },
+      {
+        "id": "seedim.cart.checkout.success",
+        "path": "cart/checkout/success",
+        "component": "seedim-cart.checkout-success.component"
+      },
+      {
+        "id": "seedim.cart.purchased.items",
+        "path": "cart/purchased-items",
+        "component": "seedim-cart.purchased-items.component"
+      }
+      
+    ],
+    "features": {
+      "navbar": [
+        {
+          "id": "seedim.cart.nav",
+          "items": [
+            {
+              "id": "seedim.cart.viewcart",
+              "icon": "shopping_cart",
+              "title": "View Cart",
+              "route": "seedim.cart.view.route"
+            },
+            {
+              "id": "seedim.cart.purchased-items",
+              "icon": "folder_special",
+              "title": "Purchased Items",
+              "route": "seedim.cart.purchased.items"
+            }
+          ]
+        }
+      ],
+      "toolbar": [
+        {
+          "id": "app.toolbar.cart.addItemToCart",
+          "order": 100,
+          "title": "SEEDIM_CART.ACTIONS.ADD_TO_CART",
+          "icon": "add_shopping_cart",
+          "actions": {
+            "click": "ADD_TO_CART"
+          },
+          "rules": {
+            "visible": "seedim-cart.isSkuItem"
+          }
+        }
+      ]
+    }
+  }
