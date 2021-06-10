@@ -1,0 +1,14 @@
+<webscript>
+    <shortname>Stripe Checkout Success Webscript</shortname>
+    <description>Creates a Stripe Session from a Cart to support a Stripe PaymentMethod lifecycle.  
+    	Returns the details on the payment associated with the passed in Session ID.
+    	JSON Request Body sample:
+    	
+    	{"session_id": "96a7d34f-7045-49f7-9e23-f6f1835cde94"}
+    	
+    </description>
+    <url>/stripe/checkout-success</url>
+    <authentication>user</authentication>
+    <format default="json"></format>
+    <lifecycle>sample</lifecycle>    
+</webscript>

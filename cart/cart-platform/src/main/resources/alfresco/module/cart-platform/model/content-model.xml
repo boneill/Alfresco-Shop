@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model name="cart:contentModel" xmlns="http://www.alfresco.org/model/dictionary/1.0">
+
+    <!-- Optional meta-data about the model -->
+    <description>Seedim Cart Content Model</description>
+    <author>Seed Information Management Pty Ltd</author>
+    <version>1.0</version>
+
+    <imports>
+        <!-- Import Alfresco Dictionary Definitions -->
+        <import uri="http://www.alfresco.org/model/dictionary/1.0" prefix="d"/>
+        <!-- Import Alfresco Content Domain Model Definitions -->
+        <import uri="http://www.alfresco.org/model/content/1.0" prefix="cm"/>
+        <!-- Import Alfresco System Model Definitions -->
+        <import uri="http://www.alfresco.org/model/system/1.0" prefix="sys"/>
+    </imports>
+
+    <!-- Custom namespace for the ACME company -->
+    <namespaces>
+        <namespace uri="http://www.seedim.com.au/cart/model/content/1.0" prefix="cart"/>
+    </namespaces>
+
+<!-- 
+    <constraints>
+        <constraint name="acme:securityClassificationOptions" type="LIST">
+            <parameter name="allowedValues">
+                <list>
+                    <value></value>
+                    <value>Public</value>
+                    <value>Client Confidential</value>
+                    <value>Company Confidential</value>
+                    <value>Strictly Confidential</value>
+                </list>
+            </parameter>
+        </constraint>
+    </constraints>
+
+ -->
+    <!-- ===============================================================================================================
+        Constraints, Types, and Aspects go here...
+        -->
+
+    <types>
+        <!--
+            Cart document that has been purchased
+        -->
+        <type name="cart:cartPurchasedDocument">
+            <title>Node Type for any item that has been purchased by a user</title>
+            <parent>cm:content</parent>
+            <mandatory-aspects>
+                <aspect>cart:cartDocumentAspect</aspect>
+            </mandatory-aspects>
+        </type>
+    </types>
+
+    <aspects>
+        <!-- A document will be purchased by a specific user -->
+        <aspect name="cart:cartDocumentAspect">
+            <title>Cart Document Aspect</title>
+            <description>Content has been security classified</description>
+            <properties>
+                <!--  The user ID for hte user that purchased the document -->
+                <property name="cart:userId">
+                    <title>Cart User Id</title>
+                    <type>d:text</type>
+                </property>
+                <property name="cart:originalDocumentName">
+                    <title>Original Document Name</title>
+                    <type>d:text</type>
+                </property>
+                
+            </properties>
+        </aspect>
+        
+         <!-- SKU - holds the pricing details for the item -->
+        <aspect name="cart:skuAspect">
+            <title>Stock Keeping Unit Details</title>
+            <description>SKU Purchase Details for the item</description>
+            <properties>
+                <!--  The user ID for hte user that purchased the document -->
+                <property name="cart:price">
+                    <title>Item Price</title>
+                    <type>d:double</type>
+                </property>
+ 
+            </properties>
+        </aspect>
+        
+    </aspects>
+
+</model>

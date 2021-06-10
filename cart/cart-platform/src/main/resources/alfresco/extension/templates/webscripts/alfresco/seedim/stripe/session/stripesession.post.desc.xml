@@ -1,0 +1,31 @@
+<webscript>
+    <shortname>Stripe Session Webscript</shortname>
+    <description>Creates a Stripe Session from a Cart to support a Stripe PaymentMethod lifecycle.  
+    
+    	Returns the sessionid for the stripe payment just created.
+    
+    	JSON Body sample:
+    	
+    	{
+		"cartItems": [{
+			"id": "96a7d34f-7045-49f7-9e23-f6f1835cde94",
+			"name": "Seed-Customer-SOW.pdf",
+			"price": 1299,  //note price is in cents
+			"image": "",
+			"quantity": 1,
+			"data": {}
+			}, {
+			"id": "8f04f8e6-6845-499b-85e6-d9d279bcc21f",
+			"name": "LeftSide.docx",
+			"price": 1299, // note price is in cents
+			"image": "",
+			"quantity": 1,
+			"data": {}
+		}]
+		}
+    </description>
+    <url>/stripe/create-checkout-session</url>
+    <authentication>user</authentication>
+    <format default="json"></format>
+    <lifecycle>sample</lifecycle>    
+</webscript>
