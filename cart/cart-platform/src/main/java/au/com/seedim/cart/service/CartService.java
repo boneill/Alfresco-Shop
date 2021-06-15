@@ -16,6 +16,7 @@ import org.alfresco.service.namespace.NamespaceService;
 import org.alfresco.service.namespace.QName;
 import org.apache.log4j.Logger;
 
+import au.com.seedim.cart.config.ShopConfig;
 import au.com.seedim.cart.model.CartModel;
 
 public class CartService {
@@ -23,9 +24,8 @@ public class CartService {
     protected NodeService nodeService;
    	private NodeLocatorService nodeLocatorService;
     private CopyService copyService;
-    
-
-	
+    private ShopConfig shopConfig;
+		
     static final Logger logger = Logger.getLogger(CartService.class);
     
     /**
@@ -62,7 +62,7 @@ public class CartService {
   							NodeRef copyRef = this.copyService.copy(srcNodeRef, usersCartFolderRef, ContentModel.ASSOC_CONTAINS, QName.createQName(name) );
   							nodeService.setType(copyRef, CartModel.TYPE_CART_PURCHASED_DOCUMENT);
   							nodeService.setProperty(copyRef, CartModel.PROP_CART_USER_ID, userId);
-  							nodeService.setProperty(copyRef, ContentModel.PROP_NAME, name + "_" + copyRef.getId());
+  							nodeService.setProperty(copyRef, ContentModel.PROP_NAME, copyRef.getId()  + "_" + name);
   							nodeService.setProperty(copyRef, CartModel.PROP_ORIGINAL_NAME, name);
   							
   							
@@ -163,5 +163,14 @@ public class CartService {
 			this.nodeService = nodeService;
 		}
 
-
+		/**
+	     * Set shopconfig 
+	     * 
+	     * @param shopConfig
+	     */
+	    public void setShopConfig(ShopConfig shopConfig) {
+	        
+	          this.shopConfig = shopConfig;
+	
+	      }
 }

@@ -17,6 +17,7 @@ import { CartCheckoutSuccessComponent } from './containers/cart-checkout-success
 import { CartCheckoutCancelComponent } from './containers/cart-checkout-cancel/cart-checkout-cancel.component';
 import { PurchasedItemsComponent } from './containers/purchased-items.component/purchased-items.component';
 import * as CartRules from './rules/cart.rules';
+import { CartDocumentViewComponent } from './containers/cart-document-view/cart-document-view.component';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import * as CartRules from './rules/cart.rules';
     SeedimCartExtComponent, 
     CartViewComponent, 
     StripeCheckoutComponent, 
-    CartCheckoutSuccessComponent, CartCheckoutCancelComponent, PurchasedItemsComponent
+    CartCheckoutSuccessComponent, CartCheckoutCancelComponent, PurchasedItemsComponent, CartDocumentViewComponent
   ],
   imports: [ 
     CommonModule, 
@@ -64,11 +65,13 @@ export class SeedimCartExtModule {
         'seedim-cart.main.component': SeedimCartExtComponent,
         'seedim-cart.viewcart.component': CartViewComponent,
         'seedim-cart.checkout-success.component': CartCheckoutSuccessComponent,
-        'seedim-cart.purchased-items.component': PurchasedItemsComponent
+        'seedim-cart.purchased-items.component': PurchasedItemsComponent,
+        'seedim-shop.view-document.component' : CartDocumentViewComponent
     });
 
     extensions.setEvaluators({
-      'seedim-cart.isSkuItem': CartRules.isSkuItem
+      'seedim-cart.isSkuItem': CartRules.isSkuItem,
+      'seedim-cart.isPurchasedItem' : CartRules.isPurchasedItem
     });
   }
 }
