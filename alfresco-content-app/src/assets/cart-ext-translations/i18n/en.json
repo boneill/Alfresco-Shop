@@ -9,11 +9,15 @@
             "CART_VIEW":{
           
               "TITLE": "My Cart"
+            },
+            "PURCHASED_ITEMS":{
+          
+              "TITLE": "My Purchased Items"
             }
 
         },
         "CHECKOUT":{
-          "SUCCESS_TITLE":"Thanks for your Order!",
+          "SUCCESS_TITLE":"Checkout and Payment Success",
           "CANCEL_TITLE":"Your Order has been cancelled"
 
         }

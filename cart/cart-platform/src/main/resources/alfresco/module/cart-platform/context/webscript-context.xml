@@ -27,6 +27,7 @@
 	<bean id="webscript.alfresco.seedim.stripe.session.stripesession.post"
 		  class="au.com.seedim.api.stripe.StripeSessionWebScript"
 		  parent="webscript">
+		  <property name="shopConfig" ref="seedim.ShopConfig" />
 	</bean>
 	
 	<bean id="webscript.alfresco.seedim.stripe.checkout.stripecheckoutsuccess.post"

@@ -34,3 +34,27 @@ export function isSkuItem(context: RuleContext): boolean {
   return false;
 }
 
+/**
+ * Determines if an item has been purchased
+ * @param context 
+ * @returns 
+ */
+ export function isPurchasedItem(context: RuleContext): boolean {
+  
+  console.log("Rules ", context);
+  
+  if (hasFileSelected(context)) {
+
+   
+    if (
+        context.selection.file.entry.nodeType &&
+        context.selection.file.entry.nodeType.includes('cart:cartPurchasedDocument')
+
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
