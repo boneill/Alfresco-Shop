@@ -27,6 +27,17 @@
         "id": "seedim.cart.purchased.items",
         "path": "cart/purchased-items",
         "component": "seedim-cart.purchased-items.component"
+      },
+      {
+        "id": "seedim.cart.document.view",
+        "path": "cart/view-document",
+        "component": "seedim-shop.view-document.component"
+      },
+      {  "id": "seedim.cart.document.view",
+        "path": "view", 
+        "component": "seedim-shop.view-document.component",
+        "redirectTo": "seedim-shop.view-document.component", 
+        "pathMatch": "full" 
       }
       
     ],
@@ -62,7 +73,277 @@
           "rules": {
             "visible": "seedim-cart.isSkuItem"
           }
+        },
+        {
+          "id": "app.toolbar.download",
+          "order": 200,
+          "title": "APP.ACTIONS.DOWNLOAD",
+          "icon": "get_app",
+          "actions": {
+            "click": "DOWNLOAD_NODES"
+          },
+          "rules": {
+            "visible": "seedim-cart.isPurchasedItem"
+          }
+        },
+        {
+          "id": "app.toolbar.share",
+          "disabled": true         
+        },
+        {
+          "id": "app.toolbar.more",
+          "disabled": true,         
+          "type": "menu",
+          "order": 10000,
+          "icon": "more_vert",
+          "title": "APP.ACTIONS.MORE",
+          "children": [
+            {
+              "id": "app.toolbar.toggleLock",         
+              "order": 100,
+              "type": "custom",
+              "component": "app.toolbar.toggleEditOffline",
+              "rules": {
+                "visible": "canToggleEditOffline"
+              }
+            },
+            {
+              "id": "app.toolbar.uploadNodeVersion",
+              "order": 200,
+              "title": "APP.ACTIONS.UPLOAD_VERSION",
+              "icon": "playlist_add",
+              "actions": {
+                "click": "UPLOAD_FILE_VERSION"
+              },
+              "rules": {
+                "visible": "app.selection.file.canUploadVersion"
+              }
+            },
+            {
+              "id": "app.toolbar.editFolder",
+              "order": 300,
+              "title": "APP.ACTIONS.EDIT",
+              "icon": "create",
+              "actions": {
+                "click": "EDIT_FOLDER"
+              },
+              "rules": {
+                "visible": "canEditFolder"
+              }
+            },
+            {
+              "id": "app.toolbar.favorite",
+              "comment": "workaround for Recent Files and Search API issue",
+              "type": "custom",
+              "order": 400,
+              "data": "['/favorites', '/favorite/libraries']",
+              "component": "app.toolbar.toggleFavorite",
+              "rules": {
+                "visible": "canToggleFavorite"
+              }
+            },
+            {
+              "id": "app.libraries.toolbar.toggleFavorite",
+              "type": "custom",
+              "order": 401,
+              "component": "app.toolbar.toggleFavoriteLibrary",
+              "rules": {
+                "visible": "app.selection.library"
+              }
+            },
+            {
+              "id": "app.toolbar.favorite.add",
+              "order": 402,
+              "title": "APP.ACTIONS.FAVORITE",
+              "icon": "star_border",
+              "actions": {
+                "click": "ADD_FAVORITE"
+              },
+              "rules": {
+                "visible": "app.toolbar.favorite.canAdd"
+              }
+            },
+            {
+              "id": "app.toolbar.favorite.remove",
+              "order": 403,
+              "title": "APP.ACTIONS.REMOVE_FAVORITE",
+              "icon": "star",
+              "actions": {
+                "click": "REMOVE_FAVORITE"
+              },
+              "rules": {
+                "visible": "app.toolbar.favorite.canRemove"
+              }
+            },
+            {
+              "id": "app.create.separator.1",
+              "type": "separator",
+              "order": 500
+            },
+            {
+              "id": "app.toolbar.move",
+              "order": 600,
+              "title": "APP.ACTIONS.MOVE",
+              "icon": "adf:move_file",
+              "actions": {
+                "click": "MOVE_NODES"
+              },
+              "rules": {
+                "visible": "app.selection.canDelete"
+              }
+            },
+            {
+              "id": "app.toolbar.copy",
+              "disabled": true,
+              "order": 700,
+              "title": "APP.ACTIONS.COPY",
+              "icon": "content_copy",
+              "actions": {
+                "click": "COPY_NODES"
+              },
+              "rules": {
+                "visible": "canCopyNode"
+              }
+            },
+            {
+              "id": "app.toolbar.delete",
+              "order": 800,
+              "title": "APP.ACTIONS.DELETE",
+              "icon": "delete",
+              "actions": {
+                "click": "DELETE_NODES"
+              },
+              "rules": {
+                "visible": "app.selection.canDelete"
+              }
+            },
+            {
+              "id": "app.create.separator.3",
+              "type": "separator",
+              "order": 900
+            },
+            {
+              "id": "app.toolbar.versions",
+              "disabled": true,
+              "order": 1100,
+              "title": "APP.ACTIONS.VERSIONS",
+              "icon": "history",
+              "actions": {
+                "click": "MANAGE_VERSIONS"
+              },
+              "rules": {
+                "visible": "canManageFileVersions"
+              }
+            },
+            {
+              "id": "app.toolbar.aspects",
+              "order": 1110,
+              "title": "APP.ACTIONS.CHANGE_ASPECT",
+              "icon": "toc",
+              "actions": {
+                "click": "ASPECT_LIST"
+              },
+              "rules": {
+                "visible": "canEditAspects"
+              }
+            },
+            {
+              "id": "app.toolbar.permissions",
+              "order": 1200,
+              "title": "APP.ACTIONS.PERMISSIONS",
+              "icon": "supervisor_account",
+              "actions": {
+                "click": "MANAGE_PERMISSIONS"
+              },
+              "rules": {
+                "visible": "canManagePermissions"
+              }
+            },
+            {
+              "id": "app.toolbar.deleteLibrary",
+              "order": 100,
+              "title": "APP.ACTIONS.DELETE",
+              "icon": "delete",
+              "actions": {
+                "click": "DELETE_LIBRARY"
+              },
+              "rules": {
+                "visible": "app.selection.library"
+              }
+            }
+          ]
         }
-      ]
+      ],
+      "viewer": {
+        "toolbarActions": [
+          {
+            "id": "app.viewer.fullscreen",
+            "order": 100,
+            "title": "APP.ACTIONS.FULLSCREEN",
+            "icon": "fullscreen",
+            "actions": {
+              "click": "FULLSCREEN_VIEWER"
+            },
+            "rules": {
+              "visible": "canViewFile"
+            }
+          },
+          {
+            "id": "app.viewer.separator.1",
+            "type": "separator",
+            "order": 180
+          },
+          {
+            "id": "app.viewer.share",
+            "type": "custom",
+            "order": 200,
+            "data": {
+              "iconButton": true
+            },
+            "component": "app.shared-link.toggleSharedLink",
+            "rules": {
+              "visible": "'false'"
+            }
+          },
+          {
+            "id": "app.viewer.download",
+            "order": 300,
+            "title": "APP.ACTIONS.DOWNLOAD",
+            "icon": "get_app",
+            "actions": {
+              "click": "DOWNLOAD_NODES"
+            },
+            "rules": {
+              "visible": "seedim-cart.isPurchasedItem"
+            }
+          },
+          {
+            "id": "app.viewer.print",
+            "order": 400,
+            "title": "APP.ACTIONS.PRINT",
+            "icon": "print",
+            "actions": {
+              "click": "PRINT_FILE"
+            },
+            "rules": {
+              "visible": "seedim-cart.isPurchasedItem"
+            }
+          },
+          {
+            "id": "app.viewer.separator.2",
+            "type": "separator",
+            "order": 450
+          },
+          {
+            "id": "app.viewer.infoDrawer",
+            "type": "custom",
+            "order": 500,
+            "component": "app.toolbar.toggleInfoDrawer",
+            "rules": {
+              "visible": "canShowInfoDrawer"
+            }
+          }
+        ]
+      }
     }
   }

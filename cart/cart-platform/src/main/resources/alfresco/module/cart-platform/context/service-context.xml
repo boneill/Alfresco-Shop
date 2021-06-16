@@ -42,7 +42,25 @@
         <property name="nodeService" ref="NodeService" />
         <property name="nodeLocatorService" ref="nodeLocatorService"/>
         <property name="CopyService" ref="CopyService"/>
+        <property name="shopConfig" ref="seedim.ShopConfig" />
+        
     </bean>
+    
+    <bean id="seedim.ShopConfig"
+      class="au.com.seedim.cart.config.ShopConfig"
+      init-method="init">
+      	<property name="stripeApiPrivateKey">
+      		<value>${seedim.shop.stripe.apiPrivateKey}</value>
+    	</property>
+    	<property name="stripeTaxRateId">
+      		<value>${seedim.shop.stripe.taxRateId}</value>
+    	</property>
+    	<property name="shopAppUrl">
+      		<value>${seedim.shop.app.url}</value>
+    	</property>
+    	
+    	    	
+  </bean>
 	
 
 
