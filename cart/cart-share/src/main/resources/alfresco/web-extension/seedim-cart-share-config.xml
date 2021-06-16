@@ -22,6 +22,7 @@
                 <aspect name="cart:skuAspect"/>
             </visible>
             <addable> <!-- defaults to visible config -->
+            	
             </addable>
             <removeable> <!-- defaults to visible config -->
             </removeable>
