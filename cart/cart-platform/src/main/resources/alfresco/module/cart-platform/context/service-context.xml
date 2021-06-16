@@ -42,6 +42,7 @@
         <property name="nodeService" ref="NodeService" />
         <property name="nodeLocatorService" ref="nodeLocatorService"/>
         <property name="CopyService" ref="CopyService"/>
+        <property name="permissionService" ref="PermissionService" />
         <property name="shopConfig" ref="seedim.ShopConfig" />
         
     </bean>
