@@ -7,7 +7,12 @@
       <adf-toolbar class="adf-toolbar--inline">
         <ng-container *ngIf="isItemSelected">
             <button mat-icon-button
-            aria-label="APP.ACTIONS.DOWNLOAD"
+            aria-label="APP.ACTIONS.PREVIEW"
+            (click)="navigateTo(documentList.selection[0])">
+                    <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button
+              aria-label="APP.ACTIONS.DOWNLOAD"
                     [adfNodeDownload]="documentList.selection">
                     <mat-icon>get_app</mat-icon>
             </button>
@@ -24,7 +29,11 @@
             [currentFolderId]="(userCartFolderNode$ | async)?.id"
             [contextMenuActions]="true"
             [contentActions]="true"
-            (nodeSelected)="nodeSelected($event)">
+            [navigate]="true"
+            [navigationMode]="'click'"
+            (nodeSelected)="nodeSelected($event)"
+            (node-dblclick)="navigateTo($event.detail?.node)"
+            (name-click)="navigateTo($event.detail?.node)">
 
             <content-actions>
 
@@ -33,7 +42,7 @@
                     title="Download"
                     handler="download">
                 </content-action>
-        
+               
             </content-actions>
 
             <data-columns>
