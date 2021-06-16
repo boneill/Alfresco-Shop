@@ -124,6 +124,7 @@ export abstract class PageComponent implements OnInit, OnDestroy, OnChanges {
         id = (node as any).entry.nodeId || (node as any).entry.guid || node.entry.id;
       }
 
+      console.log("file dispatch view ", id, extras);
       this.store.dispatch(new ViewNodeAction(id, extras));
     }
   }

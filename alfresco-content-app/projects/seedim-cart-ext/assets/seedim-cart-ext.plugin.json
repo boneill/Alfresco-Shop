@@ -342,7 +342,12 @@
             "rules": {
               "visible": "canShowInfoDrawer"
             }
+          },
+          {
+            "id": "app.viewer.toolbar.more",
+            "disabled": true
           }
+  
         ]
       }
     }
