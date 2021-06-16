@@ -66,7 +66,7 @@
                                     	<include>**/*.jar</include>
                                         <include>**/*.so</include>
                                         <include>**/*.gz</include>
-                                        <exclude>**/*.amp</exclude>
+                                        <!-- <exclude>**/*.amp</exclude> -->
                                     </excludes>
                                 </resource>
                             </resources>
@@ -88,7 +88,7 @@
                                         <include>**/*.jar</include>
                                         <include>**/*.so</include>
                                         <include>**/*.gz</include>
-                                        <exclude>**/*.amp</exclude>
+                                        <!-- <exclude>**/*.amp</exclude> -->
                                     </includes>
                                 </resource>
                             </resources>
