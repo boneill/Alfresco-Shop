@@ -8,7 +8,7 @@
     	
     </description>
     <url>/stripe/checkout-success</url>
-    <authentication>user</authentication>
+    <authentication runas="admin">user</authentication>
     <format default="json"></format>
     <lifecycle>sample</lifecycle>    
 </webscript>
