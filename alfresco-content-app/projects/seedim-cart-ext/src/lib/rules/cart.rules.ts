@@ -22,13 +22,28 @@ export function isSkuItem(context: RuleContext): boolean {
   
   if (hasFileSelected(context)) {
 
-   
+    if(isPurchasedItem(context)){
+      return false;
+    }
+
+   // check to do when in files selection
     if (
         context.selection.file.entry.aspectNames &&
         context.selection.file.entry.aspectNames.includes('cart:skuAspect')
     ) {
       return true;
     }
+
+    // check to do when in search results selection
+    if (
+      context.selection.file.entry.properties &&
+      context.selection.file.entry.properties['cart:price']
+  ) {
+    return true;
+  }
+
+
+
   }
 
   return false;
