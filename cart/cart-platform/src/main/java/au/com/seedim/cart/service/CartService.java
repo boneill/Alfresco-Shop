@@ -12,6 +12,7 @@ import org.alfresco.service.cmr.repository.CopyService;
 import org.alfresco.service.cmr.repository.InvalidNodeRefException;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.cmr.repository.NodeService;
+import org.alfresco.service.cmr.security.PermissionService;
 import org.alfresco.service.namespace.NamespaceService;
 import org.alfresco.service.namespace.QName;
 import org.apache.log4j.Logger;
@@ -25,6 +26,7 @@ public class CartService {
    	private NodeLocatorService nodeLocatorService;
     private CopyService copyService;
     private ShopConfig shopConfig;
+    private PermissionService permissionService;
 		
     static final Logger logger = Logger.getLogger(CartService.class);
     
@@ -127,6 +129,10 @@ public class CartService {
 			            ContentModel.ASSOC_CONTAINS, 
 			            QName.createQName(NamespaceService.CONTENT_MODEL_1_0_URI, userId),
 			            ContentModel.TYPE_FOLDER, props).getChildRef();
+				//Disable Inheritance
+				permissionService.setInheritParentPermissions(userCartRef, false);
+				//Give User Consumer permission
+				permissionService.setPermission(userCartRef, userId, "Consumer", true);
 			}
 		}
 			
@@ -173,4 +179,16 @@ public class CartService {
 	          this.shopConfig = shopConfig;
 	
 	      }
+
+
+
+		public PermissionService getPermissionService() {
+			return permissionService;
+		}
+
+
+
+		public void setPermissionService(PermissionService permissionService) {
+			this.permissionService = permissionService;
+		}
 }
