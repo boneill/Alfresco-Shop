@@ -31,7 +31,12 @@ export class StripeCheckoutComponent {
 
   checkout() {
     // Check the server.js tab to see an example implementation
-    let cartItems = this.cartService.getItems();
+  
+    const cartItems = [];
+    this.cartService.getItems().forEach(val => cartItems.push(Object.assign({}, val)));
+
+
+    //let cartItems = Object.assign([], this.cartService.getItems());
     for (var i in cartItems) {
          cartItems[i].price = cartItems[i].price * 100
     }
@@ -43,7 +48,6 @@ export class StripeCheckoutComponent {
     const url = 'stripe/create-checkout-session';
 
     //this.http.post('/stripe/create-checkout-session', JSON.stringify(cartObj))
-
 
     from(
       this.apiService
