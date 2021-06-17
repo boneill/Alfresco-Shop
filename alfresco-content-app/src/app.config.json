@@ -18,9 +18,10 @@
     "redirectUri": "/",
     "redirectUriLogout": "/logout"
   },
+  "successRoute" : "/libraries",
   "locale": "en",
   "application": {
-    "name": "Alfresco Content Application",
+    "name": "Alfresco Content Shopfront",
     "version": "2.4.0",
     "logo": "assets/images/alfresco-logo-flower.svg",
     "headerImagePath": "assets/images/mastHead-bg-shapesPattern.svg",

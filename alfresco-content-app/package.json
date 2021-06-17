@@ -21,7 +21,8 @@
     "spellcheck": "cspell '{src,e2e,projects}/**/*.ts'",
     "inspect.bundle": "ng build app --prod --stats-json && npx webpack-bundle-analyzer dist/app/stats.json",
     "validate-config": "ajv validate -s ./node_modules/@alfresco/adf-core/app.config.schema.json -d ./src/app.config.json --errors=text --verbose",
-    "build:cart": "ng build seedim-cart-ext && npx cp -r projects/seedim-cart-ext/assets/cart-ext-translations src/assets"
+    "build:cart": "ng build seedim-cart-ext && npx cp -r projects/seedim-cart-ext/assets/cart-ext-translations src/assets",
+    "cart:config": "npx cp -r projects/seedim-cart-ext/assets/cart-ext-translations src/assets && npx cp projects/seedim-cart-ext/assets/seedim-cart-ext.plugin.json src/assets/. && npx cp projects/seedim-cart-ext/assets/seedim-cart-ext.plugin.json dist/seedim-cart-ext/assets/."
   },
   "private": true,
   "dependencies": {

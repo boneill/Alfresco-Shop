@@ -55,8 +55,8 @@
             "TITLE": "Details"
         },
         "NEW_MENU": {
-            "LABEL": "New",
-            "TOOLTIP": "Add new files and folders, or create a new File Library",
+            "LABEL": "Buy Now",
+            "TOOLTIP": "Checkout and Purchase Items in your Cart",
             "MENU_ITEMS": {
                 "CREATE_FOLDER": "Create Folder",
                 "UPLOAD_FILE": "Upload File",

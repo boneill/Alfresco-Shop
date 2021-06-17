@@ -1,26 +1,32 @@
 {
   "SEEDIM_CART":{
     
-        "ACTIONS":{
+    "CHECKOUT_MENU": {
+      "LABEL": "Checkout",
+      "TOOLTIP": "Checkout"
+    },    
+    "ACTIONS":{
           "ADD_TO_CART": "Add to Cart"
         },
-        "BROWSE":{
-          
-            "CART_VIEW":{
-          
-              "TITLE": "My Cart"
-            },
-            "PURCHASED_ITEMS":{
-          
-              "TITLE": "My Purchased Items"
-            }
-
+    "BROWSE":{
+      
+        "CART_VIEW":{    
+          "TITLE": "My Cart"
         },
-        "CHECKOUT":{
-          "SUCCESS_TITLE":"Checkout and Payment Success",
-          "CANCEL_TITLE":"Your Order has been cancelled"
-
+        "PURCHASED_ITEMS":{
+          "TITLE": "My Purchased Items",
+          "EMPTY_STATE": {
+            "TITLE": "You have not purchased any items",
+            "SUBTITLE": "Once items have been purchased they may be accessed and downloaded from this page"
+          }
         }
-      }
+
+    },
+    "CHECKOUT":{
+      "SUCCESS_TITLE":"Checkout and Payment Success",
+      "CANCEL_TITLE":"Your Order has been cancelled"
+
+    }
+  }
 
 }
