@@ -1,10 +1,10 @@
 {
     "$schema": "../../../extension.schema.json",
-    "$id": "my-extension",
+    "$id": "seedim-alfresco-shop",
     "$version": "1.0.0",
-    "$vendor": "Your name or company name",
-    "$name": "plugin1",
-    "$description": "demo plugin",
+    "$vendor": "Seed Information Management Pty Ltd",
+    "$name": "Alfresco Shop",
+    "$description": "Shop front end to Alfresco",
     "$license": "MIT",
   
     "routes": [
