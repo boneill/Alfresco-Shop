@@ -36,6 +36,7 @@ The Alfresco Shopfront Addon turns Alfresco into an eCommerce site.  Shoppers ca
 **Installing Alfresco Shopfront Addon**
 
 Installing Alfresco AMPs
+
 This requires the installation of the Repository and Share amps.
 
 	Download the required AMPs from Github
@@ -46,6 +47,7 @@ This requires the installation of the Repository and Share amps.
 	Restart Alfresco and verify that the install has been successful by adding the SKUItem Aspect to a content item in your Repository
 
 Installing the Alfresco Shopfront Angular Application
+
 The following install instructions are for installing the Angular  Application on the Tomcat that you are running Alfresco on.  
 However, it does not need to be co-located with the Alfresco application and could be installed on nginx or apache web server.
 
@@ -55,6 +57,7 @@ However, it does not need to be co-located with the Alfresco application and cou
 	
 
 **Configuring Stripe Connection**
+
 The step includes providing configuration options for Alfresco to be able to connect to Stripe for accepting Credit Card Payments.  You must setup a Stripe account prior to configuring Alfresco to connect to it.  Stripe provides private and public API keys to manage secure connections.  Stripe provides both Test and Production Keys.  We strongly advise you to test the addon using your Test Stripe keys.  (see https://stripe.com/) for details no setting up and managing your Stripe account.
 
 The following values should be configured in alfresco-global.properties on your Alfresco
