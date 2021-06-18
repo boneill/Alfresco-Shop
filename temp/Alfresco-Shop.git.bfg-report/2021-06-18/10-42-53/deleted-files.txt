@@ -1,5 +1,0 @@
-8b0a4245c43b57af2f92170818cd84a6750f9047 476 alfresco-global.properties
-f566f222f77236af70a3984390d9f3df8fe42149 327 alfresco-global.properties
-b1396f2f653de11e165cace5f34b11bd46b89beb 567 alfresco-global.properties
-58d74e084c2d3b67c44a73b2ea89c8151bbaf3eb 1087 alfresco-global.properties
-aa87fc13a5d48debee8b7a629f82fc0d66a1ae90 3013 alfresco-global.properties
