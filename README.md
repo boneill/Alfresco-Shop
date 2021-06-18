@@ -1,8 +1,8 @@
-**Alfresco Shopfront Addon
+**Alfresco Shopfront Addon**
 
 The Alfresco Shopfront Addon turns Alfresco into an eCommerce site.  Shoppers can use Alfresco to find content by either browsing or searching and add content to a shopping cart.  Users cannot download content unless they have purchased it.  On Checkout, users are directed to a Credit Card payment checkout page so that they can pay for the content.  Once paid, the users can download or print out the content items they have purchased
 
-**Building Alfresco Shopfront Addon
+**Building Alfresco Shopfront Addon**
 
 	Clone Alfresco Shop from github repo
 		$ git clone https://github.com/boneill/Alfresco-Shop.git
