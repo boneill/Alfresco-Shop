@@ -20,7 +20,7 @@ The Alfresco Shopfront Addon turns Alfresco into an eCommerce site.  Shoppers ca
 			Alfresco-Shop/cart/cart-share/target/ cart-share-1.0-SNAPSHOT.amp
 
 	Build Alfresco Shopfront Content App
-		From Alfresco-Shop/Alfresco-Content-App folder run the folder command to build the Alfresco Shop App.
+		From Alfresco-Shop/Alfresco-Content-App folder run the following command to build the Alfresco Shop App.
 		Install Alfresco Content App dependencies
 			npm install
 		Build ACA-Shared library since the Alfresco Shop Add On uses resources from the ACA-Shared
